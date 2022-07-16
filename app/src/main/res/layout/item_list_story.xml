@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    app:cardCornerRadius="4dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="8dp">
+
+        <ImageView
+            android:id="@+id/itemListStoryIMG"
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            android:contentDescription="@string/title_photo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/bg_main_gradient"
+            tools:ignore="ImageContrastCheck" />
+
+
+        <TextView
+            android:id="@+id/itemListStoryTVDate"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/abeezee"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="@+id/itemListStoryIMG"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:ignore="SmallSp,TextContrastCheck"
+            tools:text="@string/title_created_at" />
+
+        <TextView
+            android:id="@+id/itemListStoryTVName"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/abeezee"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/itemListStoryIMG"
+            tools:text="@string/title_name" />
+
+        <TextView
+            android:id="@+id/itemListStoryTVDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/abeezee"
+            android:maxLines="2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/itemListStoryTVName"
+            tools:text="@string/title_description" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

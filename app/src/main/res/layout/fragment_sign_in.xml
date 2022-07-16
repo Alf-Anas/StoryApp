@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:boxBackgroundMode="filled"
+        app:errorEnabled="true">
+
+        <dev.geoit.android.storyapp.view.custom.EmailEditText
+            android:id="@+id/signInEDTEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:hint="@string/title_email"
+            android:inputType="textEmailAddress"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:boxBackgroundMode="filled"
+        app:errorEnabled="true">
+
+        <dev.geoit.android.storyapp.view.custom.PasswordEditText
+            android:id="@+id/signInEDTPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:hint="@string/title_password"
+            android:inputType="textPassword"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <TextView
+        android:id="@+id/signInTVMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/msg_invalid_email_address"
+        android:textAlignment="center"
+        android:textColor="@android:color/holo_red_dark"
+        android:textStyle="bold"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/signInBTN"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/btn_sign_in" />
+
+</LinearLayout>

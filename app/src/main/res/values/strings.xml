@@ -1,3 +1,45 @@
 <resources>
     <string name="app_name">Story App</string>
+    <string name="activity_list_story">Story</string>
+    <string name="activity_add_story">Add Story</string>
+    <string name="activity_detail_story">Detail Story</string>
+    <string name="activity_auth">Authentication</string>
+
+    <string name="title_sign_in">Sign In</string>
+    <string name="title_sign_up">Sign Up</string>
+    <string name="title_sign_out">Sign Out</string>
+
+    <string name="title_name">Name</string>
+    <string name="title_email">Email</string>
+    <string name="title_password">Password</string>
+    <string name="title_options">Options</string>
+    <string name="title_description">Description</string>
+    <string name="title_photo">Photo</string>
+    <string name="title_created_at">Created At</string>
+    <string name="title_coordinate">Coordinate</string>
+    <string name="title_upload">Upload</string>
+
+    <string name="btn_sign_in">Sign In</string>
+    <string name="btn_sign_up">Sign Up</string>
+    <string name="btn_sign_out">Sign Out</string>
+    <string name="btn_language">Language</string>
+    <string name="btn_yes">Yes</string>
+    <string name="btn_cancel">Cancel</string>
+    <string name="btn_upload">Upload</string>
+    <string name="btn_next">Next</string>
+    <string name="btn_before">Before</string>
+    <string name="btn_camera">Camera</string>
+    <string name="btn_gallery">Gallery</string>
+    <string name="btn_delete">Delete</string>
+
+    <string name="data_zero">0</string>
+
+    <string name="msg_sign_out">Are you sure you want to sign out?</string>
+    <string name="msg_invalid_email_address">Invalid email address!</string>
+    <string name="msg_invalid_minimum_password">Minimum password length is 6 character</string>
+    <string name="msg_choose_a_picture">Choose a picture!</string>
+    <string name="msg_permission_not_granted">Permission not granted!</string>
+    <string name="msg_invalid_story_upload">Please take a picture and input the description</string>
+    <string name="msg_upload_story">Are you sure you want to upload this story?</string>
+    <string name="msg_uploading">Uploading…</string>
 </resources>

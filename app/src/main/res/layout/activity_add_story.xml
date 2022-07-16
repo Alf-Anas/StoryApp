@@ -4,6 +4,63 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.addStory.AddStoryActivity">
+    tools:context=".view.activity.addstory.AddStoryActivity">
 
+    <ImageView
+        android:id="@+id/addStoryIMG"
+        android:layout_width="0dp"
+        android:layout_height="250dp"
+        android:contentDescription="@string/title_photo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_add_photo_alternate_24" />
+
+    <EditText
+        android:id="@+id/addStoryEDTDescription"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/border_line"
+        android:ems="10"
+        android:gravity="top"
+        android:hint="@string/title_description"
+        android:inputType="textMultiLine|textPersonName|textCapSentences"
+        android:minLines="5"
+        android:padding="8dp"
+        android:singleLine="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addStoryIMG"
+        android:importantForAutofill="no" />
+
+    <Button
+        android:id="@+id/addStoryBTNUpload"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/btn_upload"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addStoryEDTDescription" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addStoryFABDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:clickable="true"
+        android:contentDescription="@string/btn_delete"
+        android:focusable="true"
+        android:visibility="gone"
+        app:backgroundTint="@android:color/holo_red_light"
+        app:fabSize="mini"
+        app:layout_constraintBottom_toBottomOf="@+id/addStoryIMG"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_baseline_delete_24" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">Story App</string>
+    <string name="activity_list_story">Story</string>
+    <string name="activity_add_story">Tambah Story</string>
+    <string name="activity_detail_story">Detail Story</string>
+    <string name="activity_auth">Autentikasi</string>
+
+    <string name="title_sign_in">Masuk</string>
+    <string name="title_sign_up">Daftar</string>
+    <string name="title_sign_out">Keluar</string>
+
+    <string name="title_name">Nama</string>
+    <string name="title_email">Surel</string>
+    <string name="title_password">Kata Sandi</string>
+    <string name="title_options">Pilihan</string>
+    <string name="title_description">Deskripsi</string>
+    <string name="title_photo">Foto</string>
+    <string name="title_created_at">Dibuat Pada</string>
+    <string name="title_coordinate">Koordinat</string>
+    <string name="title_upload">Unggah</string>
+
+    <string name="btn_sign_in">Masuk</string>
+    <string name="btn_sign_up">Daftar</string>
+    <string name="btn_sign_out">Keluar</string>
+    <string name="btn_language">Bahasa</string>
+    <string name="btn_yes">Ya</string>
+    <string name="btn_cancel">Batal</string>
+    <string name="btn_upload">Unggah</string>
+    <string name="btn_next">Selanjutnya</string>
+    <string name="btn_before">Sebelumnya</string>
+    <string name="btn_camera">Kamera</string>
+    <string name="btn_gallery">Galeri</string>
+    <string name="btn_delete">Hapus</string>
+
+    <string name="data_zero">0</string>
+
+    <string name="msg_sign_out">Anda yakin untuk keluar dari aplikasi?</string>
+    <string name="msg_invalid_email_address">Alamat surel tidak benar!</string>
+    <string name="msg_invalid_minimum_password">Kata Sandi minimum adalah 6 karakter!</string>
+    <string name="msg_choose_a_picture">Pilih gambar!</string>
+    <string name="msg_permission_not_granted">Izin tidak diberikan!</string>
+    <string name="msg_invalid_story_upload">Harap mengambil gambar dan mengisi deskripsi</string>
+    <string name="msg_upload_story">Anda yakin untuk mengunggah story ini</string>
+    <string name="msg_uploading">Mengunggah…</string>
+</resources>

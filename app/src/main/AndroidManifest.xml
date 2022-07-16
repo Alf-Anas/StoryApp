@@ -2,6 +2,16 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="dev.geoit.android.storyapp">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-feature android:name="android.hardware.camera" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="18" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,20 +20,51 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.StoryApp">
         <activity
-            android:name=".activity.auth.AuthActivity"
-            android:exported="false" />
+            android:name=".view.activity.detailstory.DetailStoryActivity"
+            android:exported="false"
+            android:label="@string/activity_detail_story" />
         <activity
-            android:name=".activity.addStory.AddStoryActivity"
-            android:exported="false" />
+            android:name=".view.activity.auth.AuthActivity"
+            android:exported="false"
+            android:theme="@style/Theme.StoryApp.NoActonBar"
+            android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name=".activity.main.MainActivity"
-            android:exported="true">
+            android:name=".view.activity.addstory.AddStoryActivity"
+            android:exported="false"
+            android:label="@string/activity_add_story" />
+        <activity
+            android:name=".view.activity.main.MainActivity"
+            android:exported="true"
+            android:label="@string/activity_list_story">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="dev.geoit.android.storyapp"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
+
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <category android:name="android.intent.category.BROWSABLE" />
+            <data android:scheme="https" />
+        </intent>
+    </queries>
 
 </manifest>
