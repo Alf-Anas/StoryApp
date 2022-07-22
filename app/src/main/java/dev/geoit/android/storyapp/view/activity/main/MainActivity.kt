@@ -1,10 +1,11 @@
 package dev.geoit.android.storyapp.view.activity.main
 
-import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.provider.Settings
 import android.view.Menu
 import android.view.MenuItem
@@ -19,12 +20,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import dev.geoit.android.storyapp.R
 import dev.geoit.android.storyapp.databinding.ActivityMainBinding
 import dev.geoit.android.storyapp.model.ListStoryAdapter
+import dev.geoit.android.storyapp.model.LoadingStateAdapter
 import dev.geoit.android.storyapp.model.UserPreferences
-import dev.geoit.android.storyapp.view.LoadingDialog
 import dev.geoit.android.storyapp.view.ViewModelFactory
 import dev.geoit.android.storyapp.view.activity.addstory.AddStoryActivity
 import dev.geoit.android.storyapp.view.activity.addstory.AddStoryActivity.Companion.REFRESH_LIST_STORY
 import dev.geoit.android.storyapp.view.activity.auth.AuthActivity
+import dev.geoit.android.storyapp.view.activity.map.MapsActivity
 
 
 private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
@@ -34,8 +36,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var viewModel: MainViewModel
     private lateinit var adapter: ListStoryAdapter
-    private lateinit var loadingDialog: AlertDialog
-    private var mPage = 1
     private lateinit var mToken: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,31 +43,26 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        loadingDialog = LoadingDialog().initLoadingDialog(this)
-        setupViewModel()
         setupListStories()
+        setupViewModel()
 
         binding.mainFABAdd.setOnClickListener {
             startAddStoryActivity.launch(Intent(this, AddStoryActivity::class.java))
         }
-
-        binding.mainBTNNext.setOnClickListener {
-            mPage++
-            triggerGetListStories()
-        }
-
-        binding.mainBTNBefore.setOnClickListener {
-            if (mPage > 1) {
-                mPage--
-                triggerGetListStories()
-            }
+        binding.mainFABMap.setOnClickListener {
+            startActivity(Intent(this, MapsActivity::class.java))
         }
     }
 
     private val startAddStoryActivity =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == REFRESH_LIST_STORY) {
-                triggerGetListStories()
+                val delayTimes = 1500L
+                Handler(Looper.getMainLooper()).postDelayed({
+                    run {
+                        adapter.refresh()
+                    }
+                }, delayTimes)
             }
         }
 
@@ -114,35 +109,26 @@ class MainActivity : AppCompatActivity() {
                 finish()
             }
         }
-
-        viewModel.statusModel.observe(this) { status ->
-            if (status.isError) {
-                Toast.makeText(this, status.message, Toast.LENGTH_SHORT).show()
-            }
-            loadingDialog.dismiss()
-        }
     }
 
     private fun triggerGetListStories() {
         if (this::mToken.isInitialized) {
-            loadingDialog.show()
-            viewModel.getListStories(mToken, mPage)
-            binding.mainTVPage.text = mPage.toString()
+            viewModel.storyList(mToken).observe(this) { listStories ->
+                if (listStories != null) {
+                    adapter.submitData(lifecycle, listStories)
+                }
+            }
         }
     }
 
-    @SuppressLint("NotifyDataSetChanged")
     private fun setupListStories() {
         adapter = ListStoryAdapter()
-        adapter.notifyDataSetChanged()
         binding.mainRV.layoutManager = LinearLayoutManager(this)
-        binding.mainRV.adapter = adapter
-
-        viewModel.listStories.observe(this) { listStories ->
-            if (listStories != null) {
-                adapter.setData(listStories)
+        binding.mainRV.adapter = adapter.withLoadStateFooter(
+            footer = LoadingStateAdapter {
+                adapter.retry()
             }
-        }
+        )
     }
 
 }

@@ -2,12 +2,12 @@ package dev.geoit.android.storyapp.view.activity.main
 
 import android.util.Log
 import androidx.lifecycle.*
+import androidx.paging.PagingData
+import androidx.paging.cachedIn
 import com.google.gson.JsonElement
 import dev.geoit.android.storyapp.constant.Configuration
-import dev.geoit.android.storyapp.model.StatusModel
-import dev.geoit.android.storyapp.model.StoryModel
-import dev.geoit.android.storyapp.model.UserModel
-import dev.geoit.android.storyapp.model.UserPreferences
+import dev.geoit.android.storyapp.data.StoryRepository
+import dev.geoit.android.storyapp.model.*
 import dev.geoit.android.storyapp.retrofit.RetrofitClient
 import kotlinx.coroutines.launch
 import org.json.JSONException
@@ -32,8 +32,17 @@ class MainViewModel(private val pref: UserPreferences) : ViewModel() {
         }
     }
 
-    fun getListStories(token: String, page: Int) {
-        RetrofitClient(baseUrl).instanceDicoding.getAllStories("Bearer $token", page)
+    fun storyList(token: String): LiveData<PagingData<StoryItem>> =
+        StoryRepository(RetrofitClient(baseUrl).instanceDicoding, token).getStory()
+            .cachedIn(viewModelScope)
+
+    fun getListStories(token: String, page: Int, size: Int? = null, location: Int = 0) {
+        RetrofitClient(baseUrl).instanceDicoding.getAllStories(
+            "Bearer $token",
+            page,
+            size,
+            location
+        )
             .enqueue(
                 object : Callback<JsonElement> {
                     override fun onResponse(

@@ -31,12 +31,15 @@ class AddStoryViewModel(private val pref: UserPreferences) : ViewModel() {
     fun uploadNewStory(
         token: String,
         imageMultipart: MultipartBody.Part,
-        description: RequestBody
+        description: RequestBody,
+        lat: RequestBody? = null,
+        lon: RequestBody? = null,
     ) {
         RetrofitClient(baseUrl).instanceDicoding.postNewStories(
             "Bearer $token",
             imageMultipart,
-            description
+            description,
+            lat, lon
         )
             .enqueue(
                 object : Callback<JsonElement> {

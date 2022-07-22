@@ -6,7 +6,6 @@ import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.http.*
 
-
 interface DicodingEndpoint {
 
     @FormUrlEncoded
@@ -26,6 +25,14 @@ interface DicodingEndpoint {
 
     @GET("stories")
     fun getAllStories(
+        @Header("Authorization") bearerToken: String?,
+        @Query("page") page: Int? = 1,
+        @Query("size") size: Int? = null,
+        @Query("location") location: Int = 0,
+    ): Call<JsonElement>
+
+    @GET("stories")
+    fun getPagingStories(
         @Header("Authorization") bearerToken: String?,
         @Query("page") page: Int? = 1,
         @Query("size") size: Int? = null,

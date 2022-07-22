@@ -4,6 +4,7 @@
     <string name="activity_add_story">Add Story</string>
     <string name="activity_detail_story">Detail Story</string>
     <string name="activity_auth">Authentication</string>
+    <string name="activity_map">Map Story</string>
 
     <string name="title_sign_in">Sign In</string>
     <string name="title_sign_up">Sign Up</string>
@@ -31,10 +32,13 @@
     <string name="btn_camera">Camera</string>
     <string name="btn_gallery">Gallery</string>
     <string name="btn_delete">Delete</string>
+    <string name="btn_retry">Retry</string>
+    <string name="btn_get_coordinate">Get Coordinate</string>
 
     <string name="data_zero">0</string>
+    <string name="data_coordinate">[0, 0]</string>
 
-    <string name="msg_sign_out">Are you sure you want to sign out?</string>
+    <string name="msg_sign_out">[0, 0]</string>
     <string name="msg_invalid_email_address">Invalid email address!</string>
     <string name="msg_invalid_minimum_password">Minimum password length is 6 character</string>
     <string name="msg_choose_a_picture">Choose a picture!</string>
@@ -42,4 +46,6 @@
     <string name="msg_invalid_story_upload">Please take a picture and input the description</string>
     <string name="msg_upload_story">Are you sure you want to upload this story?</string>
     <string name="msg_uploading">Uploading…</string>
+    <string name="msg_no_data_found">No Data Found!</string>
+    <string name="msg_coordinate_not_found">Coordinate not found!</string>
 </resources>

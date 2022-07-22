@@ -33,6 +33,7 @@
     <string name="btn_delete">Hapus</string>
 
     <string name="data_zero">0</string>
+    <string name="data_coordinate">[0, 0]</string>
 
     <string name="msg_sign_out">Anda yakin untuk keluar dari aplikasi?</string>
     <string name="msg_invalid_email_address">Alamat surel tidak benar!</string>
@@ -42,4 +43,9 @@
     <string name="msg_invalid_story_upload">Harap mengambil gambar dan mengisi deskripsi</string>
     <string name="msg_upload_story">Anda yakin untuk mengunggah story ini</string>
     <string name="msg_uploading">Mengunggah…</string>
+    <string name="activity_map">Map Story</string>
+    <string name="btn_get_coordinate">Dapatkan Koordinat</string>
+    <string name="msg_no_data_found">Data Tidak Ditemukan!</string>
+    <string name="msg_coordinate_not_found">Koordinat Gagal Didapatkan!</string>
+    <string name="btn_retry">Coba Lagi</string>
 </resources>
